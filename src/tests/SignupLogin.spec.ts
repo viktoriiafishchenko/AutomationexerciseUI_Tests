@@ -5,7 +5,7 @@ import SignupLoginPage  from '../pages/SignupLoginPage';
 import SignupPage from '../pages/SignupPage';
 import { Users } from '../data/Users';
 import HomePage from '../pages/HomePage';
-import AccountCreatedPage from '../pages/AccounrCreatedPage';
+import AccountCreatedPage from '../pages/AccountCreatedPage';
 
 test('Signup user with valid data', async ({ page }) => {
   await page.goto(URLS.LOGIN);
