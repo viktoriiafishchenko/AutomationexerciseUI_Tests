@@ -1,5 +1,4 @@
 import { Page, Locator } from "@playwright/test";
-import { CartElements } from "./CartElements";
 
 export class PaymentElements {
     readonly page: Page;

@@ -28,8 +28,5 @@ export class ProductsElements {
     this.popupElement = page.locator('.modal-content');
     this.continueShoppingButton = this.popupElement.locator('[data-dismiss="modal"]');
     this.viewCartButton = this.popupElement.getByText('View Cart');
-
-
-
   }
 }

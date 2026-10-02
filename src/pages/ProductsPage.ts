@@ -1,12 +1,10 @@
 import { Page, expect } from '@playwright/test';
-import { BasePage } from './BasePage';
 import { ProductsElements } from './ProductsElements';
 
-export default class ProductsPage extends BasePage {
+export default class ProductsPage {
   readonly productsElements: ProductsElements;
 
-  constructor(page: Page) {
-    super(page);
+  constructor(readonly page: Page) {
     this.productsElements = new ProductsElements(page);
   }
 
@@ -23,34 +21,34 @@ export default class ProductsPage extends BasePage {
   }
 
   async fillSearchInput(searchTerm: string) {
-    await this.productsElements.searchInput.fill(searchTerm);
-  }
+        await this.productsElements.searchInput.fill(searchTerm);
+    }
 
-  async clickSearchButton() {
-    await this.productsElements.searchButton.click();
-  }
+    async clickSearchButton() {
+        await this.productsElements.searchButton.click();
+    }
 
-  async clickAddToCartButton(index: number) {
-    await this.productsElements.addToCartButton.nth(index).click();
-  }
+    async clickAddToCartButton(index: number) {
+        await this.productsElements.addToCartButton.nth(index).click();
+    }
 
-  async clickContinueShoppingButton() {
-    await this.productsElements.continueShoppingButton.click();
-  }
+    async clickContinueShoppingButton() {
+        await this.productsElements.continueShoppingButton.click();
+    }
 
-  async clickViewCartButton() {
-    await this.productsElements.viewCartButton.click();
-  }
+    async clickViewCartButton() {
+      await this.productsElements.viewCartButton.click();
+    }
 
-  async addToCartAndContinue(index: number) {
-    await this.productsElements.addToCartButton.nth(index).hover();
-    await this.productsElements.addToCartButton.nth(index).click();
-    await this.productsElements.continueShoppingButton.click();
-  }
+    async addToCartAndContinue(index: number) {
+      await this.productsElements.addToCartButton.nth(index).hover();
+      await this.productsElements.addToCartButton.nth(index).click();
+      await this.productsElements.continueShoppingButton.click();
+    }
 
-  async addToCartAndViewCart(index: number) {
-    await this.productsElements.addToCartButton.nth(index).hover();
-    await this.productsElements.addToCartButton.nth(index).click();
-    await this.productsElements.viewCartButton.click();
-  }
+    async addToCartAndViewCart(index: number) {
+      await this.productsElements.addToCartButton.nth(index).hover();
+      await this.productsElements.addToCartButton.nth(index).click();
+      await this.productsElements.viewCartButton.click();
+    }
 }

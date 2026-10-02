@@ -29,4 +29,33 @@ export default class CartPage extends BasePage {
     async clickDeleteProductButton() {
         await this.cartElements.deleteProductButton.click();
     }
+
+    // Getters for assertions in tests
+    get cartProducts() {
+        return this.cartElements.cartProducts;
+    }
+
+    get productDescription() {
+        return this.cartElements.productDescription;
+    }
+
+    get productPrice() {
+        return this.cartElements.productPrice;
+    }
+
+    get productQuantity() {
+        return this.cartElements.productQuantity;
+    }
+
+    get productTotal() {
+        return this.cartElements.productTotal;
+    }
+
+    get emptyCartElement() {
+        return this.cartElements.emptyCartElement;
+    }
+
+    get cartIsEmptyText() {
+        return this.cartElements.cartIsEmptyText;
+    }
 }

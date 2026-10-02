@@ -4,6 +4,7 @@ import { PaymentElements } from './PaymentElements';
 
 export default class PaymentPage extends BasePage {
     readonly paymentElements: PaymentElements;
+    paymentDoneElements: any;
 
     constructor(page: Page) {
         super(page);

@@ -17,6 +17,7 @@ export class HomeElements {
   readonly succsessMessage: Locator;
   readonly cartButton: Locator;
   readonly deleteAccountButton: Locator;
+  readonly logoutAccountButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -37,5 +38,6 @@ export class HomeElements {
     this.succsessMessage = this.subscriptionSection.locator('.alert-success');
     this.cartButton = this.navigateBar.getByText('Cart');
     this.deleteAccountButton = this.navigateBar.getByText('Delete Account');
+    this.logoutAccountButton = this.navigateBar.getByText('Logout');
   }
 }

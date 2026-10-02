@@ -5,6 +5,7 @@ import ProductPage from '../pages/ProductPage';
 import { ProductsElements } from '../pages/ProductsElements';   
 import { ProductElements } from '../pages/ProductElements';
 
+
 test('Verify All Products and product detail page', async ({ page }) => {
     await page.goto(URLS.PRODUCTS);
     const productsPage = new ProductsPage(page);
