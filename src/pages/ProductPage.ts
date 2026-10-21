@@ -38,4 +38,24 @@ export default class ProductPage extends BasePage {
     async clickViewCartButton() {
         await this.productElements.viewCartButton.click();
     }
+
+    async fillNameInput(name: string) {
+        await this.productElements.nameInput.fill(name);
+    }
+
+    async fillEmailInput(email: string) {
+        await this.productElements.emailInput.fill(email);
+    }
+
+    async fillReviewInput(review: string) {
+        await this.productElements.reviewInput.fill(review);
+    }
+
+    async clickSubmitButton() {
+        await this.productElements.submitButton.click();
+    }
+     
+    async scrollToSubmitButton() {
+    await this.productElements.submitButton.scrollIntoViewIfNeeded();
+  }
 }

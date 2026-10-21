@@ -16,6 +16,12 @@ export class ProductElements {
     readonly popupElement: Locator;
     readonly continueShoppingButton: Locator;
     readonly viewCartButton: Locator;
+    readonly reviewElement: Locator;
+    readonly nameInput: Locator;
+    readonly emailInput: Locator;
+    readonly reviewInput: Locator;
+    readonly submitButton: Locator;
+    readonly reviewSuccessMessage: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -30,9 +36,15 @@ export class ProductElements {
         this.availability = this.productInformation.locator('p', { hasText: 'Availability:' });
         this.condition = this.productInformation.locator('p', { hasText: 'Condition:' });
         this.brand = this.productInformation.locator('p', { hasText: 'Brand:' });
+        this.reviewElement = page.locator('.shop-details-tab');
+        this.nameInput = this.reviewElement.locator('#name');
+        this.emailInput = this.reviewElement.locator('#email');
+        this.reviewInput = this.reviewElement.locator('#review');
+        this.submitButton = this.reviewElement.locator('#button-review');
+        this.reviewSuccessMessage = this.reviewElement.locator('.alert-success');
 
         this.popupElement = page.locator('#cartModal');
         this.continueShoppingButton = this.popupElement.locator('.btn-success');
         this.viewCartButton = this.popupElement.getByText('View Cart');
     }
-}   
+}

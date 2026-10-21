@@ -4,7 +4,7 @@ import ProductsPage from '../pages/ProductsPage';
 import ProductPage from '../pages/ProductPage';
 import { ProductsElements } from '../pages/ProductsElements';   
 import { ProductElements } from '../pages/ProductElements';
-
+import { faker } from '@faker-js/faker/locale/en_US';
 
 test('Verify All Products and product detail page', async ({ page }) => {
     await page.goto(URLS.PRODUCTS);
@@ -35,4 +35,16 @@ test('Search Product', async({page}) => {
     await productsPage.clickSearchButton();
     await expect(productsElements.productItem).toHaveCount(1);
     await expect(productsElements.productItem).toContainText('Fancy Green Top');
+});
+
+test('Create review for a product', async({page}) => {
+    await page.goto(URLS.FIRST_PRODUCT)
+    const productPage = new ProductPage(page);
+    const productElements = new ProductElements(page);
+    await productPage.scrollToSubmitButton();
+    await productPage.fillNameInput(faker.person.firstName());
+    await productPage.fillEmailInput(faker.internet.email());
+    await productPage.fillReviewInput('This is a great product!');
+    await productPage.clickSubmitButton();
+    await expect(productElements.reviewSuccessMessage).toHaveText('Thank you for your review.');
 });
